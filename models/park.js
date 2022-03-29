@@ -72,5 +72,16 @@ Park.prototype.removeAllDinosaursOfSpecies = function(species) {
 }
 
 // Create object containing each diet type with number of park dinosaurs of that diet type
+Park.prototype.dinosaursOfEachDietType = function() {
+    let dinosaurDietTypes = {};
+    for (let dinosaur of this.dinosaurs) {
+        if (dinosaur.diet in dinosaurDietTypes) {
+            dinosaurDietTypes[dinosaur.diet] ++;
+        } else {
+            dinosaurDietTypes[dinosaur.diet] = 1;
+        }
+    }
+    return dinosaurDietTypes;
+}
 
 module.exports = Park;
